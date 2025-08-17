@@ -17,3 +17,27 @@ docker images
 docker rm 'containerId'
 docker rmi 'imageId'
 
+2. Docker command after creating springBoot project
+
+-- unruffled_tesla | container name
+
+docker exec unruffled_tesla ls /tmp
+docker cp target/rest-demo-docker.jar unruffled_tesla:/tmp
+docker exec unruffled_tesla ls /tmp
+docker commit unruffled_tesla robert/rest-demo-docker:v1
+docker images
+docker run robert/rest-demo-docker:v1
+docker ps
+docker commit --change='CMD ["java", "-jar", "/tmp/rest-demo-docker.jar"]' unruffled_tesla robert/rest-demo-docker:v2
+docker images
+docker run robert/rest-demo-docker:v2
+docker run -p 8081:8081 robert/rest-demo-docker:v2
+docker run -p 8070:8081 robert/rest-demo-docker:v2
+java -jar target/rest-demo-docker.jar
+
+
+3. To create a docker file to create images directly instead of creating manually evrytime
+
+- Create a "Dockerfile" directly under project similar location of pom.xml
+docker build -t robert/rest-demo-docker:v4 .
+docker run -p 8078:8081 robert/rest-demo-docker:v3
