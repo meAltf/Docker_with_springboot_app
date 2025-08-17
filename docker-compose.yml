@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8090:8080"                   # Access Spring Boot app at http://localhost:8090
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:latest
+    environment:
+#      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: learn
+      MYSQL_USER: robert
+      MYSQL_PASSWORD: 1234
+    ports:
+      - "3307:3306"

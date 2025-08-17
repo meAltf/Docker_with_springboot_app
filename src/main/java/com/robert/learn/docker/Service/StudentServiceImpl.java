@@ -16,4 +16,18 @@ public class StudentServiceImpl {
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
+
+    public Student getStudentById(int studentId) {
+        return studentRepository.findById(studentId).orElse(new Student());
+    }
+
+    public Student addStudent() {
+        Student student = new Student();
+        student.setId(4);
+        student.setName("docker-child");
+        student.setAge(20);
+
+        studentRepository.save(student);
+        return student;
+    }
 }

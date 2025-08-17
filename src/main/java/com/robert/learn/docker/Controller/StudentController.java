@@ -4,6 +4,8 @@ import com.robert.learn.docker.Model.Student;
 import com.robert.learn.docker.Service.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -20,5 +22,15 @@ public class StudentController {
         List<Student> studentList = new ArrayList<>();
         studentList =  studentService.getAllStudents();
         return studentList;
+    }
+
+    @GetMapping("/studentById/{id}")
+    public Student getStudentById(@PathVariable(name = "id") int studentId) {
+        return studentService.getStudentById(studentId);
+    }
+
+    @PostMapping("/addStudent")
+    public Student addStudent() {
+        return studentService.addStudent();
     }
 }
