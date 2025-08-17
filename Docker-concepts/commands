@@ -41,3 +41,10 @@ java -jar target/rest-demo-docker.jar
 - Create a "Dockerfile" directly under project similar location of pom.xml
 docker build -t robert/rest-demo-docker:v4 .
 docker run -p 8078:8081 robert/rest-demo-docker:v3
+
+4. To run multiple container
+
+- Create a "docker-compose" file under project exact similar location of pom.xml
+- Add all necessary properties in 'docker-compose.yml'
+docker-compose up --build
+
