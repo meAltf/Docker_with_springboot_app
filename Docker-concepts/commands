@@ -1,0 +1,19 @@
+# Docker commands
+
+1. Docker basic commands
+docker --help
+docker --version
+
+docker search 'image name'
+docker pull 'imageName'
+docker create 'containerId'
+docker start 'containerId'
+docker run 'imageName'
+
+docker ps
+docker ps -a
+docker images
+
+docker rm 'containerId'
+docker rmi 'imageId'
+
