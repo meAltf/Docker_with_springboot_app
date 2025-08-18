@@ -23,7 +23,7 @@ public class StudentServiceImpl {
 
     public Student addStudent() {
         Student student = new Student();
-        student.setId(4);
+       // student.setId(4);
         student.setName("docker-child");
         student.setAge(20);
 
